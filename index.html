@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Doculist</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/index.css">
+
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="assets/js/index.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav class="navbar navbar-header">
+    <div class="container">
+      <h2 class="navbar-brand">
+        DocuList
+      </h2>
+      <img class="d-inline-block" src="assets/css/springCM Logo White.jpeg" alt="" style="width:150px">
+      <form class="form-inline">
+         <input class="form-control mr-sm-2" type="search" placeholder="Enter File Path" aria-label="File Path" id="filePath" value="">
+         <button class="btn header-submit my-2 my-sm-0" type="button"  tabindex="0" data-toggle="tooltip" title="Disabled tooltip" onclick="loadJSONButton()" id="jsonLoaderBtn">Load JSON</button>
+       </form>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-warning" role="alert">
+          <strong>Warning!</strong> Error Reading JSON File. Re-check inserted path.
+        </div>
+      </div>
+    </div>
+    <div class="row block-margin">
+      <div class="col-md-6">
+        <h4>Current JSON:</h4>
+        <p>
+          {{currentFolder}}
+        </p>
+      </div>
+      <div class="col-md-3">
+        <button class="btn" onclick="clearData()">Clear Data</button>
+      </div>
+      <div class="col-md-3">
+        <h4>Actions List: </h4>
+        <button class="btn btn-sm text-center" onclick="switchMenu()">Expand <i class="fa fa-arrow-right" style="width:40px"></i></button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="table-scroll col-md-8" id="mainPanel">
+          <table class="table table-select" id="documentListTable">
+            <thead>
+              <tr>
+                <td>
+                  Type
+                </td>
+                <td (click)='sortBy("Name")' [ngClass]="{'sorted-column': sortedType == 'Name'}">
+                  Name
+                </td>
+                <td (click)='sortBy("Description")' [ngClass]="{'sorted-column': sortedType == 'Description'}">
+                  Description
+                </td>
+                <td (click)='sortBy("ModifiedDate")' [ngClass]="{'sorted-column': sortedType == 'ModifiedDate'}">
+                  Date Modified
+                </td>
+              </tr>
+            </thead>
+            <tbody id="documentListBody">
+            </tbody>
+          </table>
+          </div>
+          <div class="col-md-4" id="sidePanel">
+            <div class="row">
+              <div class="col-md-12">
+                <ul id="actionsList" class="expanded-menu" style="list-style: none">
+                </ul>
+              </div>
+            </div>
+
+            </div>
+        </div>
+
+  </div>
+
+</body>
+</html>

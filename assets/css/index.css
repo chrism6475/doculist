@@ -1,0 +1,42 @@
+.navbar-header{
+  background-color: #B43877;
+  margin-bottom: 20px;
+  color:white;
+}
+
+.block-margin {
+  margin: 50px;
+}
+
+.block-margin {
+  margin: 50px;
+}
+
+.header-submit{
+  border-color: #EFA55C;
+  background-color: #EFA55C;
+  color: white;
+}
+
+thead{
+  background-color: #EFA55C;
+}
+thead td:hover{
+  color: white;
+}
+
+.sorted-column{
+  color: white;
+}
+
+.table-scroll{
+  overflow:auto;
+  width: 80%;
+  height: 300px;
+}
+.expanded-menu{
+  columns: 4;
+}
+.hide-list-item {
+  display: none;
+}
